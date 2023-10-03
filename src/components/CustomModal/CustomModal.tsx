@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import useSWR from 'swr';
 
 import { getRequest } from '@/utils/requests';
-import { CustomModalType } from '@/utils/types';
+import { CustomModalType, Planet } from '@/utils/types';
 
 const style = {
     position: 'absolute',
@@ -32,15 +32,14 @@ const CustomModal = ({
     films,
     homeworld,
 }: CustomModalType) => {
-    const homeworldData = useSWR<any>(['homeworld', homeworld], () =>
+    const homeworldData = useSWR<Planet>(['homeworld', homeworld], () =>
         getRequest(homeworld),
     );
-    const handleClose = () => setOpen(false);
 
     return (
         <Modal
             open={open}
-            onClose={handleClose}
+            onClose={() => setOpen(false)}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >

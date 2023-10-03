@@ -6,7 +6,7 @@ import useSWR from 'swr';
 import FilterRow from '@/components/FilterRow/FilterRow';
 import PersonCard from '@/components/PersonCard/PersonCard';
 import { getRequest } from '@/utils/requests';
-import { PeopleDataType } from '@/utils/types';
+import { PeopleDataType, Person } from '@/utils/types';
 
 function PeopleLayout() {
     const [page, setPage] = useState(1);
@@ -56,7 +56,7 @@ function PeopleLayout() {
                 {(people.isLoading
                     ? Array.from(new Array(10))
                     : people.data?.results!
-                ).map((item: any, index: number) => (
+                ).map((item: Person, index: number) => (
                     <Grid item xs={2} key={index}>
                         <PersonCard
                             item={item}

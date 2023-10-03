@@ -1,0 +1,16 @@
+{
+    "printWidth": 80,
+    "tabWidth": 4,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "importOrder": [
+        "^react$",
+        "^next(?:$|/)",
+        "<THIRD_PARTY_MODULES>",
+        "^@src/",
+        "^\\.\\.?/"
+    ],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true,
+    "importOrderCaseInsensitive": true
+}

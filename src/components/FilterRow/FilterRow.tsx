@@ -11,7 +11,7 @@ import { FilterRowType } from '@/utils/types';
 const FilterRow = ({ searchText, setSearchText, setSearch }: FilterRowType) => {
     return (
         <Grid container spacing={2} columns={10} alignItems={'center'}>
-            <Grid item xs={8}>
+            <Grid item xs={10} sm={6}>
                 <TextField
                     id="outlined-basic"
                     label="Search in names"
@@ -22,7 +22,7 @@ const FilterRow = ({ searchText, setSearchText, setSearch }: FilterRowType) => {
                     onChange={(e) => setSearchText(e.target.value)}
                 />
             </Grid>
-            <Grid item xs={1}>
+            <Grid item xs={5} sm={2}>
                 <Button
                     variant="outlined"
                     startIcon={<DeleteIcon />}
@@ -35,7 +35,7 @@ const FilterRow = ({ searchText, setSearchText, setSearch }: FilterRowType) => {
                     Delete
                 </Button>
             </Grid>
-            <Grid item xs={1}>
+            <Grid item xs={5} sm={2}>
                 <Button
                     variant="contained"
                     endIcon={<SearchIcon />}

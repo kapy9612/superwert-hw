@@ -52,12 +52,12 @@ function PeopleLayout() {
                 setSearchText={setSearchText}
                 setSearch={setSearch}
             />
-            <Grid container spacing={2} columns={10}>
+            <Grid container spacing={2} columns={{ xs: 4, sm: 6, md: 10 }}>
                 {(people.isLoading
                     ? Array.from(new Array(10))
                     : people.data?.results!
                 ).map((item: any, index: number) => (
-                    <Grid item md={2} xl={2} key={index}>
+                    <Grid item xs={2} key={index}>
                         <PersonCard
                             item={item}
                             media={`https://picsum.photos/id/${

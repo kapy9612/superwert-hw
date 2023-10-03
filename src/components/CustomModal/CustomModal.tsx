@@ -4,10 +4,9 @@ import { CircularProgress } from '@mui/material';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
-import useSWR from 'swr';
 
-import { getRequest } from '@/utils/requests';
-import { CustomModalType, Planet } from '@/utils/types';
+import { useHomeworld } from '@/hooks/useHomeworld';
+import { CustomModalType } from '@/utils/types';
 
 const style = {
     position: 'absolute',
@@ -32,9 +31,7 @@ const CustomModal = ({
     films,
     homeworld,
 }: CustomModalType) => {
-    const homeworldData = useSWR<Planet>(['homeworld', homeworld], () =>
-        getRequest(homeworld),
-    );
+    const homeworldData = useHomeworld(homeworld);
 
     return (
         <Modal

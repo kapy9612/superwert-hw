@@ -45,7 +45,7 @@ export type CustomModalType = {
 export type FilterRowType = {
     searchText: string;
     setSearchText: React.Dispatch<React.SetStateAction<string>>;
-    setSearch: React.Dispatch<React.SetStateAction<boolean>>;
+    setIsSearch: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export type Planet = {

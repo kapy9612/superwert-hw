@@ -1,48 +1,36 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 
 import { Grid, Pagination, Typography } from '@mui/material';
-import useSWR from 'swr';
 
 import FilterRow from '@/components/FilterRow/FilterRow';
 import PersonCard from '@/components/PersonCard/PersonCard';
-import { getRequest } from '@/utils/requests';
-import { PeopleDataType, Person } from '@/utils/types';
+import { useNavigation } from '@/hooks/useNavigation';
+import { usePeople } from '@/hooks/usePeople';
+import { Person } from '@/utils/types';
 
 function PeopleLayout() {
     const [page, setPage] = useState(1);
-    const [count, setCount] = useState(0);
     const [searchText, setSearchText] = useState('');
     const [searchKey, setSearchKey] = useState('');
-    const [search, setSearch] = useState(false);
+    const [isSearch, setIsSearch] = useState(false);
 
-    const people = useSWR<PeopleDataType>(['people', page, searchKey], () =>
-        getRequest(`https://swapi.dev/api/people`, {
-            page: page,
-            search: searchText,
-        }),
-    );
+    const people = usePeople(page, searchKey, searchText);
+
+    const { count } = useNavigation(people.data!);
 
     useEffect(() => {
-        if (people.data?.count) {
-            setCount(Math.ceil(people.data?.count / 10));
-        }
-    }, [people.data]);
-
-    useEffect(() => {
-        if (search) {
+        if (isSearch) {
             setPage(1);
             setSearchKey(searchText);
-            setSearch(false);
+            setIsSearch(false);
         }
-    }, [search, searchText]);
+    }, [isSearch, searchText]);
 
     if (people.error) {
-        return <>An error occurred, please refresh the page.</>;
+        return (
+            <Typography>An error occurred, please refresh the page.</Typography>
+        );
     }
-
-    const handleChange = (_event: ChangeEvent<unknown>, value: number) => {
-        setPage(value);
-    };
 
     return (
         <>
@@ -50,7 +38,7 @@ function PeopleLayout() {
             <FilterRow
                 searchText={searchText}
                 setSearchText={setSearchText}
-                setSearch={setSearch}
+                setIsSearch={setIsSearch}
             />
             <Grid container spacing={2} columns={{ xs: 4, sm: 6, md: 10 }}>
                 {(people.isLoading
@@ -72,7 +60,9 @@ function PeopleLayout() {
                 hideNextButton={people.data?.next === null}
                 hidePrevButton={people.data?.previous === null}
                 page={page}
-                onChange={handleChange}
+                onChange={(_event: ChangeEvent<unknown>, value: number) => {
+                    setPage(value);
+                }}
                 disabled={people.isLoading}
             />
         </>

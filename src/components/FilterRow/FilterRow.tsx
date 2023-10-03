@@ -8,7 +8,11 @@ import TextField from '@mui/material/TextField';
 
 import { FilterRowType } from '@/utils/types';
 
-const FilterRow = ({ searchText, setSearchText, setSearch }: FilterRowType) => {
+const FilterRow = ({
+    searchText,
+    setSearchText,
+    setIsSearch,
+}: FilterRowType) => {
     return (
         <Grid container spacing={2} columns={10} alignItems={'center'}>
             <Grid item xs={10} sm={6}>
@@ -16,7 +20,7 @@ const FilterRow = ({ searchText, setSearchText, setSearch }: FilterRowType) => {
                     id="outlined-basic"
                     label="Search in names"
                     variant="outlined"
-                    size={'small'}
+                    size="small"
                     fullWidth
                     value={searchText}
                     onChange={(e) => setSearchText(e.target.value)}
@@ -29,7 +33,7 @@ const FilterRow = ({ searchText, setSearchText, setSearch }: FilterRowType) => {
                     fullWidth
                     onClick={() => {
                         setSearchText('');
-                        setSearch(true);
+                        setIsSearch(true);
                     }}
                 >
                     Delete
@@ -40,7 +44,7 @@ const FilterRow = ({ searchText, setSearchText, setSearch }: FilterRowType) => {
                     variant="contained"
                     endIcon={<SearchIcon />}
                     fullWidth
-                    onClick={() => setSearch(true)}
+                    onClick={() => setIsSearch(true)}
                 >
                     Search
                 </Button>

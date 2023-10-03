@@ -1,4 +1,5 @@
 import axios, { AxiosResponse, Method } from 'axios';
+
 const request = async <T>(
     method: Method,
     url: string,

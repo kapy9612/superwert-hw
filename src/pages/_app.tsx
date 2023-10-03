@@ -1,14 +1,16 @@
-import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
-import { ThemeProvider } from '@mui/material';
-import { theme } from '@/styles/theme';
-import { SWRConfig } from 'swr';
+import Head from 'next/head';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import Head from 'next/head';
+import { ThemeProvider } from '@mui/material';
+import { SWRConfig } from 'swr';
+
+import '@/styles/globals.css';
+import { theme } from '@/styles/theme';
+
 export default function App({ Component, pageProps }: AppProps) {
     return (
         <>

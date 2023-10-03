@@ -1,10 +1,12 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
+
 import { Grid, Pagination, Typography } from '@mui/material';
 import useSWR from 'swr';
-import { getRequest } from '@/utils/requests';
-import PersonCard from '@/components/PersonCard/PersonCard';
-import { PeopleDataType } from '@/utils/types';
+
 import FilterRow from '@/components/FilterRow/FilterRow';
+import PersonCard from '@/components/PersonCard/PersonCard';
+import { getRequest } from '@/utils/requests';
+import { PeopleDataType } from '@/utils/types';
 
 function PeopleLayout() {
     const [page, setPage] = useState(1);
@@ -32,7 +34,7 @@ function PeopleLayout() {
             setSearchKey(searchText);
             setSearch(false);
         }
-    }, [search]);
+    }, [search, searchText]);
 
     if (people.error) {
         return <>An error occurred, please refresh the page.</>;

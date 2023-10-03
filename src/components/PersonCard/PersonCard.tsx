@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import {
     Card,
     CardContent,
@@ -6,6 +7,7 @@ import {
     Skeleton,
     Typography,
 } from '@mui/material';
+
 import CustomModal from '@/components/CustomModal/CustomModal';
 import { PeopleCardType } from '@/utils/types';
 

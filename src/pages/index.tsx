@@ -1,5 +1,5 @@
-import styles from '@/styles/Home.module.css';
 import PeopleLayout from '@/components/PeopleLayout/PeopleLayout';
+import styles from '@/styles/Home.module.css';
 
 export default function Home() {
     return (

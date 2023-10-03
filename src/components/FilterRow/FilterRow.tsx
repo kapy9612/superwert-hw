@@ -1,9 +1,11 @@
 import React from 'react';
-import TextField from '@mui/material/TextField';
-import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
+
 import DeleteIcon from '@mui/icons-material/Delete';
 import SearchIcon from '@mui/icons-material/Search';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField';
+
 import { FilterRowType } from '@/utils/types';
 
 const FilterRow = ({ searchText, setSearchText, setSearch }: FilterRowType) => {

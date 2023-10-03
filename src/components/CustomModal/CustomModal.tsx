@@ -1,10 +1,12 @@
 import React from 'react';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
-import useSWR from 'swr';
-import { getRequest } from '@/utils/requests';
+
 import { CircularProgress } from '@mui/material';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import Typography from '@mui/material/Typography';
+import useSWR from 'swr';
+
+import { getRequest } from '@/utils/requests';
 import { CustomModalType } from '@/utils/types';
 
 const style = {

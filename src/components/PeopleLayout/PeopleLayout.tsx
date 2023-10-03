@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import { CircularProgress, Grid, Pagination, Typography } from '@mui/material';
+import { Grid, Pagination, Typography } from '@mui/material';
 import useSWR from 'swr';
 import { getRequest } from '@/utils/requests';
 import PersonCard from '@/components/PersonCard/PersonCard';
